@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { LayoutDashboard, KanbanSquare, CalendarClock, Target, Menu, X, Sparkles, LogOut, type LucideIcon } from 'lucide-react';
+import { Sun, BarChart3, KanbanSquare, CalendarClock, Target, Menu, X, Sparkles, LogOut, type LucideIcon } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
 
-export type View = 'dashboard' | 'tasks' | 'calendar' | 'habits';
+export type View = 'today' | 'tasks' | 'calendar' | 'habits' | 'stats';
 
 interface SidebarProps {
   view: View;
@@ -10,10 +10,11 @@ interface SidebarProps {
 }
 
 const NAV: { id: View; label: string; icon: LucideIcon }[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'today', label: 'Today', icon: Sun },
   { id: 'tasks', label: 'Tasks', icon: KanbanSquare },
   { id: 'calendar', label: 'Schedule', icon: CalendarClock },
   { id: 'habits', label: 'Habits', icon: Target },
+  { id: 'stats', label: 'Progress', icon: BarChart3 },
 ];
 
 export function Sidebar({ view, onChange }: SidebarProps) {
